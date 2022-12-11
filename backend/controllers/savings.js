@@ -21,9 +21,10 @@ exports.addSaving = async (req, res, next) => {
     try{
         const date = Date.parse(req.body.date);
         const amount = Number(req.body.amount);
+        const description = req.body.description;
 
         const saving = await Savings.create({
-            date, amount
+            date, description, amount
         });
 
         return res.status(201).json({
@@ -75,6 +76,7 @@ exports.updateSaving = async (req, res, next) => {
 
         saving.date = req.body.date;
         saving.amount = Number(req.body.amount);
+        saving.description = req.body.description;
 
         saving.save();
 

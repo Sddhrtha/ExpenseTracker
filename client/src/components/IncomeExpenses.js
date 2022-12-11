@@ -3,30 +3,20 @@ import { GlobalContext } from '../context/GlobalState';
 
 export const IncomeExpenses = () => {
 
-  const {transactions } = useContext(GlobalContext);
+  const {expenses, income, numberWithCommas } = useContext(GlobalContext);
 
-  const amounts = transactions.map(transaction => transaction.amount);
-
-  const income = amounts
-    .filter(item => item > 0)
-    .reduce((acc, item) => (acc += item), 0)
-    .toFixed(2);
-
-  const expense = (
-    amounts.filter(item => item < 0).reduce((acc, item) => (acc += item), 0) *
-    -1
-  ).toFixed(2);
-
+  const Expenses = numberWithCommas(expenses.map(expense => expense.amount).reduce((a, b) => a + b, 0));
+  const Income = numberWithCommas(income.map(inc => inc.amount).reduce((a,b) => a + b, 0));
   return (
     <>
         <div className="inc-exp-container">
             <div>
             <h4>Income</h4>
-            <p className="money plus">${income}</p>
+            <p className="money plus">₹{Income}</p>
             </div>
             <div>
-            <h4>Expense</h4>
-            <p className="money minus">-${expense}</p>
+            <h4>Expenses</h4>
+            <p className="money minus">₹{Expenses}</p>
             </div>
         </div>
     </>    

@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const savingsSchema = new Schema({
     date: { type: Date, required: true},
-    amount: { type: String, required: true}
+    description: { type: String, required: true},
+    amount: { type: Number, required: true}
 })
 
 const Savings = mongoose.model('Savings', savingsSchema);

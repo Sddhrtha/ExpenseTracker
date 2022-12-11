@@ -24,6 +24,32 @@ body {
   width: 350px;
 }
 
+.button-container{
+  margin: auto;
+  display: inline-block;
+}
+
+.button {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  border-color: #dedede;
+  background-color:#dedede;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #2ecc71;
+}
+
+#button1 {
+  margin-right: 25px;
+}
+
+#button2 {
+  margin-right: 25px;
+}
+
 h1 {
   letter-spacing: 1px;
   margin: 0;
